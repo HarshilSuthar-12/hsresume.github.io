@@ -170,100 +170,27 @@
 			</div>
 		</div>
 	</section>
-
-	<section class="s2">
-		<div class="main-container">
-			<a href=""></a>
-			<h3 style="text-align: center;">Get In Touch</h3>
-
-			<form id="contact-form">
-				<a name="contact"></a>
-
-				<label>Name</label>
-				<input class="input-field" type="text" name="name">
-
-				<label>Subject</label>
-				<input class="input-field" type="text" name="subject">
-
-				<label>Email</label>
-				<input class="input-field" type="text" name="email">
-
-				<label>Message</label>
-				<textarea class="input-field" name="message"></textarea>
-
-				<input id="submit-btn" type="submit" value="Send">
-			</form>
-		</div>
-	</section> 
-
-	<script type="text/javascript" src="script.js"></script>
-</body>
-</html>
-
-
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect form data
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $message = $_POST["message"];
-    
-    // Validate form data (you can add more validation if required)
-    if (empty($name) || empty($email) || empty($message)) {
-        $error = "Please fill in all fields.";
-    } else {
-        // Recipient email address
-        $to = "sutharharshil00@gmail.com";
-        
-        // Subject of the email
-        $subject = "New Contact Form Submission";
-        
-        // Email content
-        $body = "Name: " . $name . "\n";
-        $body .= "Email: " . $email . "\n";
-        $body .= "Message: " . $message;
-        
-        // Additional headers
-        $headers = "From: " . $email . "\r\n";
-        $headers .= "Reply-To: " . $email . "\r\n";
-        
-        // Send email
-        if (mail($to, $subject, $body, $headers)) {
-            $success = "Thank you for your message! We will get in touch soon.";
-        } else {
-            $error = "Oops! Something went wrong. Please try again later.";
-        }
-    }
-}
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Contact Form</title>
-</head>
-<body>
-    <h2>Get in Touch</h2>
-    
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Collect form data
         $name = $_POST["name"];
+	$subject1 = $_POST["subject1"];
         $email = $_POST["email"];
         $message = $_POST["message"];
         
         // Validate form data (you can add more validation if required)
-        if (empty($name) || empty($email) || empty($message)) {
+        if (empty($name) || empty($subject1)) || empty($email) || empty($message)) {
             $error = "Please fill in all fields.";
         } else {
             // Recipient email address
-            $to = "your-email@example.com";
+            $to = "sutharharshil00@gmail.com";
             
             // Subject of the email
             $subject = "New Contact Form Submission";
             
             // Email content
             $body = "Name: " . $name . "\n";
+	    $body = "Subject: " . $subject1 . "\n";
             $body .= "Email: " . $email . "\n";
             $body .= "Message: " . $message;
             
@@ -288,19 +215,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php if (isset($error)) { ?>
         <div><?php echo $error; ?></div>
     <?php } ?>
-    
-    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br>
-        
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="4" required></textarea><br>
-        
-        <input type="submit" value="Submit">
-    </form>
+
+	<section class="s2">
+		<div class="main-container">
+			<a href=""></a>
+			<h3 style="text-align: center;">Get In Touch</h3>
+
+			<form id="contact-form">
+				<a name="contact"></a>
+
+				<label>Name</label>
+				<input class="input-field" type="text" name="name">
+
+				<label>Subject</label>
+				<input class="input-field" type="text" name="subject1">
+
+				<label>Email</label>
+				<input class="input-field" type="text" name="email">
+
+				<label>Message</label>
+				<textarea class="input-field" name="message"></textarea>
+
+				<input id="submit-btn" type="submit" value="Send">
+			</form>
+		</div>
+	</section> 
+
+	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
+
  
