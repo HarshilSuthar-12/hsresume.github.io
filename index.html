@@ -170,52 +170,6 @@
 			</div>
 		</div>
 	</section>
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Collect form data
-        $name = $_POST["name"];
-	$subject1 = $_POST["subject1"];
-        $email = $_POST["email"];
-        $message = $_POST["message"];
-        
-        // Validate form data (you can add more validation if required)
-        if (empty($name) || empty($subject1)) || empty($email) || empty($message)) {
-            $error = "Please fill in all fields.";
-        } else {
-            // Recipient email address
-            $to = "sutharharshil00@gmail.com";
-            
-            // Subject of the email
-            $subject = "New Contact Form Submission";
-            
-            // Email content
-            $body = "Name: " . $name . "\n";
-	    $body = "Subject: " . $subject1 . "\n";
-            $body .= "Email: " . $email . "\n";
-            $body .= "Message: " . $message;
-            
-            // Additional headers
-            $headers = "From: " . $email . "\r\n";
-            $headers .= "Reply-To: " . $email . "\r\n";
-            
-            // Send email
-            if (mail($to, $subject, $body, $headers)) {
-                $success = "Thank you for your message! We will get in touch soon.";
-            } else {
-                $error = "Oops! Something went wrong. Please try again later.";
-            }
-        }
-    }
-    ?>
-    
-    <?php if (isset($success)) { ?>
-        <div><?php echo $success; ?></div>
-    <?php } ?>
-    
-    <?php if (isset($error)) { ?>
-        <div><?php echo $error; ?></div>
-    <?php } ?>
-
 	<section class="s2">
 		<div class="main-container">
 			<a href=""></a>
